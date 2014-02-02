@@ -36,8 +36,15 @@ You can manually specify the rake file location and file name by using metadata:
 describe 'task:subtask', :rakefile => 'my_task' do
   # Spot the :rakefile metadata value
   # This will tell `RSpec::Test` to load `lib/tasks/my_task.rake`
+
+  it 'does something' do
+    task.invoke
+  end
 end
 ```
+
+As you can see the subject of the test is the task with the name from example description.
+You can also refer to the subject as `task`.
 
 ```ruby
 describe 'task:subtask', :rakefile => 'my_task', :tasks_path => 'lib/capistrano/tasks' do
