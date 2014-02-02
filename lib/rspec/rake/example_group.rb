@@ -13,7 +13,7 @@ module RSpec::Rake
 
         subject(:task)  { Rake.application[self.class.top_level_description] }
 
-        before(:all) do
+        before(:each) do
           metadata = self.class.metadata
           task_name = self.class.top_level_description
 
