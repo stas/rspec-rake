@@ -1,5 +1,7 @@
 # RSpec Rake Support
 
+[![Build Status](https://travis-ci.org/stas/rspec-rake.png?branch=master)](https://travis-ci.org/stas/rspec-rake)
+
 You can test you Rake files like you test your Rails app.
 
 This gem adds an example group and configures RSpec so we can write tests for our Rake tasks easily.
@@ -52,6 +54,8 @@ describe 'task:subtask', :rakefile => 'my_task', :tasks_path => 'lib/capistrano/
   # This will tell `RSpec::Test` to load `lib/capistrano/task/my_task.rake`
 end
 ```
+
+Check [rails-dummy](https://github.com/Courseware/rails-dummy) tests for more examples.
 
 ### Limitations
 
