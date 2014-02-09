@@ -8,7 +8,7 @@ module RSpec::Rake
       base.instance_eval do
 
         metadata[:type] = :task
-        metadata[:tasks_path] ||= File.join('../', 'lib', 'tasks')
+        metadata[:tasks_path] ||= File.join('..', 'lib', 'tasks')
         metadata[:rakefile] ||= nil
 
         subject(:task)  { Rake.application[self.class.top_level_description] }
