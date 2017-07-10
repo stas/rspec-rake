@@ -8,7 +8,7 @@ module RSpec::Rake
       base.instance_eval do
 
         metadata[:type] = :task
-        metadata[:tasks_path] ||= File.join('..', 'lib', 'tasks')
+        metadata[:tasks_path] ||= File.join('lib', 'tasks')
         metadata[:rakefile] ||= nil
 
         subject(:task)  { Rake.application[self.class.top_level_description] }
@@ -18,7 +18,7 @@ module RSpec::Rake
           task_name = self.class.top_level_description
 
           rakefile = metadata[:rakefile] || task_name.split(':').first
-          task_path = File.join(metadata[:tasks_path], rakefile)
+          task_path = File.join('..', metadata[:tasks_path], rakefile)
 
           Rake.application = Rake::Application.new
           # We are sending an empty list of loaded files
