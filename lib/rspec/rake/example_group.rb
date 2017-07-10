@@ -24,6 +24,7 @@ module RSpec::Rake
           # We are sending an empty list of loaded files
           # in order to force loading of existing files
           Rake.application.rake_require(task_path, $LOAD_PATH, [])
+          Rake::Task.define_task(:environment)
         end
       end
 
