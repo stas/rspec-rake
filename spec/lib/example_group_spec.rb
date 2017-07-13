@@ -27,7 +27,9 @@ describe RSpec::Rake::ExampleGroup do
       expect(fake_rake_app).to receive(:rake_require).with(
         '../lib/tasks/some', $LOAD_PATH, [])
       expect(Rake::Application).to receive(:new).and_return(fake_rake_app)
-      example_group.hooks[:before][:each].first.block.call
+
+      example_group.hooks.send(
+        :run_example_hooks_for, example_group, :before, :each)
     end
   end
 
@@ -44,19 +46,9 @@ describe RSpec::Rake::ExampleGroup do
       expect(fake_rake_app).to receive(:rake_require).with(
         '../lib/tasks/another', $LOAD_PATH, [])
       expect(Rake::Application).to receive(:new).and_return(fake_rake_app)
-      example_group.hooks[:before][:each].first.block.call
-    end
-  end
 
-  context '#subject(:task)' do
-    before do
-      example_group.hooks[:before][:each].first.stub(:block => proc{})
-    end
-
-    it 'calls rake application task' do
-      Rake.application = {'' => 'OK'}
-      example_group.example { expect(task).to eq('OK') }
-      example_group.run(RSpec.configuration.reporter)
+      example_group.hooks.send(
+        :run_example_hooks_for, example_group, :before, :each)
     end
   end
 
