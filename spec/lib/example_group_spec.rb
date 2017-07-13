@@ -10,7 +10,7 @@ describe RSpec::Rake::ExampleGroup do
 
   it 'loads metadata' do
     expect(example_group.metadata[:type]).to eq(:task)
-    expect(example_group.metadata[:tasks_path]).to eq('../lib/tasks')
+    expect(example_group.metadata[:tasks_path]).to eq('lib/tasks')
     expect(example_group.metadata[:rakefile]).to be_nil
   end
 

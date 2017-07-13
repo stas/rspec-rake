@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'default', :rakefile => 'example', :tasks_path => './fixtures' do
+describe 'default', :rakefile => 'example', :tasks_path => 'spec/fixtures' do
   it 'task lists another task as the prerequisite' do
     expect(task.prerequisites).to include('example:subexample:task')
   end
@@ -11,7 +11,7 @@ describe 'default', :rakefile => 'example', :tasks_path => './fixtures' do
   end
 end
 
-describe 'example:subexample:task', :tasks_path => 'fixtures' do
+describe 'example:subexample:task', :tasks_path => 'spec/fixtures' do
   it 'has no prerequisites' do
     expect(task.prerequisites).to be_empty
   end
