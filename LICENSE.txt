@@ -1,4 +1,4 @@
-Copyright (c) 2014 Stas SUȘCOV
+Copyright (c) 2014-2017 Stas SUȘCOV
 
 MIT License
 
