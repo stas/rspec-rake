@@ -1,3 +1,4 @@
+require 'rspec/core'
 require 'rspec/rake/version'
 require 'rspec/rake/example_group'
 
